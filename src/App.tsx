@@ -1,24 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
+import { FC, useState } from 'react';
 import './App.css';
+import { Header } from './Components/Header/header';
+import { TodoList } from './Components/TodoList/todolist';
+import { tasksContext} from "./Contexts/TasksContext"
+import { ITask } from './Interfaces';
 
-function App() {
+const App: FC = () => {
+  const [todoList, setTodoList] = useState<ITask[]>([]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <tasksContext.Provider value={{todoList, setTodoList}}>
+        <Header />
+        <TodoList/>
+      </tasksContext.Provider>
     </div>
   );
 }

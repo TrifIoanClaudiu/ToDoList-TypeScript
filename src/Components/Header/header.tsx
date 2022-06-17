@@ -23,6 +23,8 @@ export const Header: FC = () => {
         setTask("");
         setDeadline("");
     }
+
+  
     return (
         <div className="header">
             <div className="inputs">

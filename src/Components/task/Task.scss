@@ -1,0 +1,32 @@
+.task {
+    width: 500px;
+    height: 50px;
+    display: flex;
+    margin: 15px;
+
+    .content {
+        flex: 80%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        span{
+            display: grid;
+            place-items: center;
+            border: 1px solid white;
+            width: 100%;
+            height:100%;
+            font-size:18px;
+        }
+    }
+    .remove{
+        padding-left: 15px;
+        font-size: 50px;
+        color: #990000;
+        &:hover{
+            transform: translateY(-1px);
+            font-size: 55px;
+        }
+    }
+}

@@ -1,14 +1,26 @@
 import React, { FC, useContext } from 'react'
 import "./todolist.scss"
 import { tasksContext } from '../../Contexts/TasksContext';
+import { ITask } from '../../Interfaces';
+import { Task } from '../task/Task';
 export const TodoList: FC = () => {
-    const { todoList } = useContext(tasksContext);
-    const handleClick = (): void => {
-        console.log(todoList);
-    }
+    const { todoList, setTodoList } = useContext(tasksContext);
+    
+    const completeTask = (taskNameToDelete: string): void =>{
+        setTodoList(todoList.filter((task) =>{
+            return task.taskName !== taskNameToDelete;
+        }))
+    };
     return (
         <div className="todoList">
-            <button onClick={handleClick}> + </button>
+            <div className="headers">
+                <h1>Task Deadline</h1>
+            </div>
+                {todoList.map((task: ITask, key: number) => (
+                    <Task task={task} key={key} completeTask={completeTask} />
+                ))
+
+                }
         </div>
     )
 }

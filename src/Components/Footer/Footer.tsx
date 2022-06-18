@@ -7,7 +7,7 @@ export const Footer: FC = () => {
             <footer>
                 <div className="components">
                     <h1> Ionuț Trif</h1>
-                    <a href='https://github.com/'>Source code</a>
+                    <a href='https://github.com/TrifIoanClaudiu/ToDoList-TypeScript'>Source code</a>
                 </div>
             </footer>
 

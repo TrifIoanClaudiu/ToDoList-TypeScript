@@ -5,11 +5,12 @@ import { ITask } from '../../Interfaces';
 import { Task } from '../task/Task';
 export const TodoList: FC = () => {
     const { todoList, setTodoList } = useContext(tasksContext);
-    
+
     const completeTask = (taskNameToDelete: string): void =>{
         setTodoList(todoList.filter((task) =>{
             return task.taskName !== taskNameToDelete;
         }))
+        localStorage.setItem('list', JSON.stringify(todoList));
     };
     return (
         <div className="todoList">
